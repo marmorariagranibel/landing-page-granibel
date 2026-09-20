@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Package, Gem, Sparkles } from "lucide-react"
+import { Gem, Sparkles } from "lucide-react"
 import { getWhatsAppLink } from "@/data/catalog"
 
 const materials = [

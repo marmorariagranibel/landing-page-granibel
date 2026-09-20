@@ -1,55 +1,76 @@
-# 💀 Landing Page Skeleton (Base Project)
+# Grani Bel — Landing Page
 
-Este é o **projeto base oficial** para criação de Landing Pages de alta conversão. Ele já vem configurado com a melhor stack do mercado e uma arquitetura pensada para escalar.
+Landing page da **Grani Bel**, marmoraria especializada em revestimentos em pedras naturais (mármores, granitos, quartzito, quartzo e lâminas ultracompactas). Site institucional com catálogo de materiais, portfólio de obras e captação de leads via WhatsApp.
 
-## 🚀 O que tem aqui?
+🔗 Produção: [granibel.com](https://granibel.com) · 📷 [Instagram](https://www.instagram.com/marmoraria_grani_bel/) · 💬 [WhatsApp](https://wa.me/5555992204461)
 
-Um ambiente "plug-and-play" para Engenheiros de Software e Especialistas em UI criarem páginas premium em minutos, não dias.
+## Stack
 
-### 🛠️ Tech Stack (Elite)
 - **Framework**: Next.js 16 (App Router) + React 19
-- **Estilo**: Tailwind CSS v4 + `css-variables` para temas
-- **UI Kit**: `shadcn/ui` (Componentes instalados e configurados)
-- **Animações**: Framer Motion + `tailwindcss-animate`
-- **Ícones**: Lucide React
+- **Estilo**: Tailwind CSS v4 + `shadcn/ui`
+- **Animações**: Framer Motion + `tailwindcss-animate` + Lenis (smooth scroll)
 - **Forms**: React Hook Form + Zod + Sonner
+- **SEO**: metadata via `src/lib/seo.ts`, sitemap/robots nativos do App Router, `llms.txt`
 
-### 🧠 Cérebro do Projeto (Docs)
-Mais do que código, este projeto contém **regras de negócio e design** embutidas:
+## Como rodar
 
-- **`rules/rules.md`**: O "Mestre". Define a persona do Agente, o mindset de conversão e o protocolo obrigatório de início (Dark vs Light).
-- **`docs/roadmap.md`**: O "Mapa". Explica a arquitetura de pastas, onde fica cada componente e como adaptar para novos clientes.
+```bash
+npm install
+npm run dev
+```
 
-## 🏁 Como Começar (3 Passos)
+Outros scripts: `npm run build`, `npm run start`, `npm run lint`.
 
-1.  **Instale as dependências**:
-    ```bash
-    npm install
-    ```
+## Seções da página (`src/app/page.tsx`)
 
-2.  **Leia o Protocolo**:
-    Abra `rules/rules.md` e responda às 4 perguntas sagradas (Vibe, Cor, Objetivo, Integração).
+| Componente | Conteúdo |
+| :--- | :--- |
+| `navbar.tsx` | Menu fixo + navegação mobile |
+| `hero.tsx` | Chamada principal + CTA |
+| `materials.tsx` | Tipos de pedra trabalhados (mármore, granito, quartzito, quartzo, ultracompacto) |
+| `catalog.tsx` | Catálogo de materiais disponíveis |
+| `portfolio.tsx` | Galeria de obras/aplicações realizadas |
+| `choosing-guide.tsx` | Guia de escolha do material ideal |
+| `how-it-works.tsx` | Fluxo de atendimento/processo |
+| `cities.tsx` | Regiões/cidades atendidas |
+| `faq.tsx` | Perguntas frequentes |
+| `contact-footer.tsx` | Rodapé com CTA final e contatos |
+| `whatsapp-button.tsx` | Botão flutuante de WhatsApp |
 
-3.  **Code**:
-    - Edite `src/app/globals.css` para definir as cores da marca.
-    - Monte a página em `src/app/page.tsx` importando as seções de `src/components/landing-page/`.
-    - Rode o projeto:
-    ```bash
-    npm run dev
-    ```
+## Configuração do site
 
-## 📂 Estrutura Simplificada
+Toda a identidade (nome, descrição, número de WhatsApp, redes sociais, keywords de SEO) fica centralizada em **`src/lib/site.ts`**. Ajustes de metatags/OpenGraph e JSON-LD (LocalBusiness, FAQ, Breadcrumb) ficam em **`src/lib/seo.ts`**.
+
+Cores e tema (dark premium) são definidos em **`src/app/globals.css`** via CSS variables.
+
+## SEO técnico
+
+- **`src/app/sitemap.ts`**: gera `/sitemap.xml` automaticamente (convenção nativa do Next.js App Router).
+- **`src/app/robots.ts`**: gera `/robots.txt`, liberando todo o crawling e apontando para o sitemap.
+- **`public/llms.txt`**: resumo do site em texto simples para crawlers de LLMs/IA (convenção [llms.txt](https://llmstxt.org)).
+- **JSON-LD**: schemas `LocalBusiness`, `FAQPage` e `BreadcrumbList` injetados em `src/app/layout.tsx` via `src/lib/seo.ts`.
+
+> ⚠️ `siteConfig.ogImage` (usado no Open Graph/Twitter Card) hoje aponta para `/logo-escrito.png` como fallback — o arquivo `/images/og-granibel.jpg` referenciado originalmente não existe no projeto. Recomendo gerar uma imagem de banner real (1200×630px, com foto de obra/catálogo) e apontar `ogImage` para ela.
+
+## Estrutura
 
 ```bash
 src/
 ├── app/
-│   ├── page.tsx         # Sua tela em branco (montagem)
-│   └── globals.css      # Paleta de cores (Dark/Light)
+│   ├── page.tsx         # Montagem das seções
+│   └── globals.css      # Paleta de cores
 ├── components/
-│   ├── landing-page/    # Blocos prontos (Hero, Pricing, etc)
-│   └── ui/              # Componentes base (Botão, Input, etc)
-└── lib/                 # Utilitários (cn, seo, site-config)
+│   ├── landing-page/
+│   │   ├── sections/    # Blocos da página (hero, catalog, portfolio, etc.)
+│   │   └── shared/      # Container, SectionHeading, BackgroundGlobal, WhatsAppButton
+│   └── ui/               # Componentes base (shadcn/ui)
+└── lib/                  # site.ts, seo.ts, utils.ts (cn)
 ```
 
+## Origem do projeto
+
+Este projeto foi criado a partir de um esqueleto interno de landing pages (regras de arquitetura/visual em `rules.md` e guia de adaptação em `docs/roadmap.md`). Esses arquivos documentam o padrão usado para gerar novas LPs a partir do mesmo esqueleto — não são necessários para trabalhar no dia a dia deste projeto já instanciado.
+
 ---
-> *Feito para escalar operações de Design & Tech.*
+
+Desenvolvido por [**AivonLabs**](https://aivonlabs.com.br/).

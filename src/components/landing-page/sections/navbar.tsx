@@ -6,7 +6,6 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { siteConfig } from "@/lib/site"
 import { getWhatsAppLink } from "@/data/catalog"
 
 const navLinks = [

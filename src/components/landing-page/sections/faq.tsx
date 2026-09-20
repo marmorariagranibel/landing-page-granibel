@@ -38,7 +38,7 @@ export function Faq() {
           viewport={{ once: true }}
         >
           <Accordion type="single" collapsible className="w-full space-y-4">
-            {faqData.map((item, index) => (
+            {faqData.map((item) => (
               <AccordionItem
                 key={item.id}
                 value={item.id}
