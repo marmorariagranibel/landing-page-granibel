@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  color-scheme: light;
+
+  /* Grani bel Stone Palette */
+  --stone-champagne: 46 22% 72%;
+  --stone-gold: 41 36% 59%;
+  --stone-beige: 32 18% 64%;
+  --stone-gray-dark: 0 0% 17%;
+  --stone-gray-medium: 0 0% 32%;
+  --stone-gray-light: 0 0% 64%;
+  --stone-black: 0 0% 4%;
+  --stone-white: 0 0% 96%;
+  --accent-gold: 41 48% 55%;
+  --accent-earth: 28 22% 44%;
+
+  /* LIGHT THEME - Clean & Professional */
+  --background: 0 0% 98%; /* Off-white background */
+  --foreground: 0 0% 15%; /* Dark text for readability */
+  
+  --card: 0 0% 100%; /* White cards */
+  --card-foreground: 0 0% 15%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 15%;
+  
+  /* Primary - Champagne/Gold accent - VIBRANT */
+  --primary: 41 48% 55%; /* Bright gold */
+  --primary-foreground: 0 0% 100%; /* White text on gold */
+  
+  --secondary: 0 0% 93%; /* Light gray */
+  --secondary-foreground: 0 0% 15%;
+  
+  --muted: 0 0% 93%;
+  --muted-foreground: 0 0% 40%; /* Medium gray for secondary text */
+  
+  --accent: 41 48% 55%; /* Bright gold */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  
+  --border: 0 0% 88%; /* Light borders */
+  --input: 0 0% 88%;
+  --ring: 41 48% 55%;
+  
+  --chart-1: 41 48% 55%;
+  --chart-2: 46 22% 72%;
+  --chart-3: 28 22% 44%;
+  --chart-4: 32 18% 64%;
+  --chart-5: 0 0% 64%;
+  
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 0 0% 15%;
+  --sidebar-primary: 41 48% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 93%;
+  --sidebar-accent-foreground: 0 0% 15%;
+  --sidebar-border: 0 0% 88%;
+  --sidebar-ring: 41 48% 55%;
+  
+  --radius: 0.625rem;
+}
+
+.dark {
+  /* Dark theme with CLEAR WHITE TEXT */
+  --background: 0 0% 8%; /* Dark background user liked */
+  --foreground: 0 0% 96%; /* PURE WHITE text for readability */
+  
+  --card: 0 0% 12%;
+  --card-foreground: 0 0% 96%; /* WHITE card text */
+  
+  --popover: 0 0% 12%;
+  --popover-foreground: 0 0% 96%; /* WHITE popover text */
+  
+  --primary: 46 28% 78%; /* Bright champagne */
+  --primary-foreground: 0 0% 10%; /* Dark text on champagne buttons */
+  
+  --secondary: 0 0% 18%;
+  --secondary-foreground: 0 0% 96%; /* WHITE secondary text */
+  
+  --muted: 0 0% 18%;
+  --muted-foreground: 0 0% 85%; /* Light gray for muted text - still very readable */
+  
+  --accent: 41 48% 65%; /* Vibrant gold */
+  --accent-foreground: 0 0% 96%; /* WHITE accent text */
+  
+  --destructive: 0 63% 31%;
+  
+  --border: 0 0% 100% / 15%;
+  --input: 0 0% 100% / 20%;
+  --ring: var(--stone-gray-light);
+  
+  --chart-1: var(--stone-champagne);
+  --chart-2: var(--stone-gold);
+  --chart-3: var(--accent-earth);
+  --chart-4: var(--stone-beige);
+  --chart-5: var(--stone-gray-light);
+  
+  --sidebar: 0 0% 12%;
+  --sidebar-foreground: 0 0% 96%; /* WHITE sidebar text */
+  --sidebar-primary: var(--stone-champagne);
+  --sidebar-primary-foreground: 0 0% 10%;
+  --sidebar-accent: 0 0% 18%;
+  --sidebar-accent-foreground: 0 0% 96%; /* WHITE sidebar accent text */
+  --sidebar-border: 0 0% 100% / 15%;
+  --sidebar-ring: var(--stone-gray-light);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Fonts */
+  --font-display: var(--font-space-grotesk), var(--font-inter), sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: var(--ring);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08); /* border-white/10 approx */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.05); /* bg-white/5 */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* border-white/10 */
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #ffffff, #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(to right, #0F6D7A, #2dd4bf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.container-width {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* WhatsApp Fixed Button */
+#btn-whatsapp {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #25D366;
+  color: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18),
+              0 4px 10px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#btn-whatsapp:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22),
+              0 6px 15px rgba(37, 211, 102, 0.4);
+}
+
+#btn-whatsapp:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  #btn-whatsapp {
+    padding: 0.875rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+  
+  #btn-whatsapp .whatsapp-text {
+    display: none;
+  }
+}
+
